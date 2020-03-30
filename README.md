@@ -18,10 +18,39 @@
 
 ## Preview
 
+```julia
+julia> using Bitly
+
+julia> b = BitlyToken()
+Bitly API Connection
+        url: https://api-ssl.bitly.com
+        token: # hidden for my safety :)
+
+
+julia> S = shorten(b,"https://docs.julialang.org/en/v1/")
+(link = "https://bit.ly/2Us5Vl7", response = Dict{String,Any}("deeplinks" => Any[],"created_at" => "2020-03-28T00:59:02+0000","references" => Dict{String,Any}("group" => "https://api-ssl.bitly.com/v4/groups/Bk3ri4m2q8i"),"archived" => false,"id" => "bit.ly/2Us5Vl7","custom_bitlinks" => Any[],"link" => "https://bit.ly/2Us5Vl7","tags" => Any[],"long_url" => "https://docs.julialang.org/en/v1/"))
+
+julia> S.link
+"https://bit.ly/2Us5Vl7"
+```
+
+## Details
+
+
 Right now the package implements only basic methods associated with the service:
 - obtaining token via `requestBitlyToken`
 - link shortening via `shorten`
 - link expansion via `expand`
 - click statistics via `clicks`
 
+
+This package is very much incomplete, but it does provide the basic functionality. It does what I need it to do.
+
 I am open to pull requests that extend or improve existing features.
+
+See the [documentation](https://tbeason.github.io/Bitly.jl/stable) for more information.
+
+## Disclaimer
+
+I am not affiliated in any way with Bitly, nor does this package come with any guarantees.
+
